@@ -1,0 +1,17 @@
+generator_loss:
+  _target_: src.loss.RelativisticGeneratorLoss
+  style_reconstruction:
+    _target_: src.loss.StyleRecontructionLoss
+  style_diversity:
+    _target_: src.loss.StyleDiversityLoss
+  cycle:
+    _target_: src.loss.CycleLoss
+  style_reconstruction_coef: 1
+  cycle_coef: 1
+  style_diversity_coef: 1
+  n_epoch: ${trainer.n_epochs}
+
+
+discriminator_loss:
+  _target_: src.loss.RelativisticDiscriminatorLoss
+  beta: 0.2

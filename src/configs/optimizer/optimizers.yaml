@@ -1,0 +1,23 @@
+g_optimizer:
+  _target_: torch.optim.Adam
+  lr: 1e-4
+  betas: ${betas}
+  fused: true
+
+e_optimizer:
+  _target_: torch.optim.Adam
+  lr: 1e-4
+  betas: ${betas}
+  fused: true
+
+d_optimizer:
+  _target_: torch.optim.Adam
+  lr: 1e-4
+  betas: ${betas}
+  fused: true
+
+f_optimizer:
+  _target_: torch.optim.Adam
+  lr: 1e-6
+  betas: ${betas}
+  fused: true

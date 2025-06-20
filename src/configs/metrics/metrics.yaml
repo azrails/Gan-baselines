@@ -1,0 +1,19 @@
+train:
+  - _target_: src.metrics.IsMetric
+    device: ${device}
+
+  - _target_: src.metrics.FidMetric
+    device: ${device}
+
+  - _target_: src.metrics.LpipsMetric
+    device: ${device}
+
+eval:
+  - _target_: src.metrics.IsMetric
+    device: ${device}
+
+  - _target_: src.metrics.FidMetric
+    device: ${device}
+
+  - _target_: src.metrics.LpipsMetric
+    device: ${device}

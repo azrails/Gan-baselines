@@ -1,0 +1,16 @@
+_target_: src.logger.WandBWriter
+project_name: "StarGAN-v2 baselines comparison"
+entity: null
+# run_name: "ema modern loss CelebaHQ"
+run_name: "RELATIVISTIC GAN New params"
+mode: "online"
+loss_names: # which losses to log (useful for multi-loss tasks, s.a. GANs)
+  - "generator_loss"
+  - "discriminator_loss"
+  - "g_adversarial_loss"
+  - "g_style_reconstruction_loss"
+  - "g_style_diversityn_loss"
+  - "g_cycle_loss"
+  - "d_adversarial_loss"
+log_checkpoints: False # set to True if you want to log save_dir with checkpoints to W&B
+id_length: 8 # length of the run_id

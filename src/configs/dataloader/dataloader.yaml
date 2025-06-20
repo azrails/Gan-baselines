@@ -1,0 +1,28 @@
+train:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 32
+  drop_last: True
+  pin_memory: True
+  num_workers: 3
+  pin_memory_device: 'cuda'
+  collate_fn: src.datasets.collate_fn
+
+reference:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 32
+  drop_last: True
+  pin_memory: True
+  num_workers: 3
+  pin_memory_device: 'cuda'
+  collate_fn: src.datasets.ref_collate_fn
+
+
+val:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 16
+  drop_last: False
+  # shuffle: False
+  pin_memory: False
+  num_workers: 2
+  pin_memory_device: 'cuda'
+  collate_fn: src.datasets.collate_fn

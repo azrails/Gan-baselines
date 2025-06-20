@@ -1,0 +1,15 @@
+
+train:
+  _target_: src.datasets.HQDataset
+  split: source
+  instance_transforms: ${transforms.instance_transforms.source}
+
+reference:
+  _target_: src.datasets.HQDataset
+  split: reference
+  instance_transforms: ${transforms.instance_transforms.reference}
+
+val:
+  _target_: src.datasets.HQDataset
+  split: val
+  instance_transforms: ${transforms.instance_transforms.val}

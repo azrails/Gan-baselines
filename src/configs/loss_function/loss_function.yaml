@@ -1,0 +1,25 @@
+generator_loss:
+  _target_: src.loss.GeneratorLoss
+  adversarial:
+    # _target_: src.loss.WassersteinAdversarialLoss
+    _target_: src.loss.AdversarialLoss
+  style_reconstruction:
+    _target_: src.loss.StyleRecontructionLoss
+  style_diversity:
+    _target_: src.loss.StyleDiversityLoss
+  cycle:
+    _target_: src.loss.CycleLoss
+  style_reconstruction_coef: 1
+  cycle_coef: 1
+  style_diversity_coef: 1
+  n_epoch: ${trainer.n_epochs}
+
+
+
+discriminator_loss:
+  _target_: src.loss.DiscriminatorLoss
+  r1_term: True
+  reg_coef: 1
+  adversarial:
+    # _target_: src.loss.WassersteinAdversarialLoss
+    _target_: src.loss.AdversarialLoss

@@ -1,0 +1,35 @@
+defaults:
+  - loss_function: relativistic_loss
+  - datasets: celeba_hq
+  - dataloader: dataloader
+  - metrics: metrics
+  - model: StarGAN
+  - optimizer: optimizers
+  - transforms: transforms
+  - writer: wandb
+  - _self_
+
+img_size: 256
+num_domains: 3
+embedding_size: 64
+latent_code_size: 16
+betas:
+- 0.0
+- 0.99
+device: cuda
+balanced: true
+initial_decay: 0.4
+final_decay: 0.999
+ema_step: 100
+
+trainer:
+  seed: null
+  deterministic: false
+  device: ${device}
+  save_dir: expiriments
+  override: false
+  n_epochs: 15
+  save_period: 5
+  resume_from: null
+  log_step: 300
+  discriminator_steps: 1

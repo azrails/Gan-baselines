@@ -1,0 +1,19 @@
+
+train:
+  _target_: src.datasets.HQDataset
+  split: source
+  instance_transforms: ${transforms.instance_transforms.source}
+  dataset: afhq
+
+reference:
+  _target_: src.datasets.HQDataset
+  split: reference
+  instance_transforms: ${transforms.instance_transforms.reference}
+  dataset: afhq
+
+
+val:
+  _target_: src.datasets.HQDataset
+  split: val
+  instance_transforms: ${transforms.instance_transforms.val}
+  dataset: afhq

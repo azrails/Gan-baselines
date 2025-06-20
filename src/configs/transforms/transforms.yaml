@@ -1,0 +1,36 @@
+base_transforms:
+  - _target_: torchvision.transforms.v2.RandomResizedCrop
+    size: ${img_size}
+    scale: [0.8, 1.0]
+    ratio: [0.9, 1.1]
+  - _target_: torchvision.transforms.v2.RandomHorizontalFlip
+  - _target_: torchvision.transforms.v2.ToTensor
+  - _target_: torchvision.transforms.v2.Normalize
+    mean: [0.5, 0.5, 0.5]
+    std: [0.5, 0.5, 0.5]
+
+instance_transforms:
+  source:
+    data_object:
+      _target_: torchvision.transforms.v2.Compose
+      transforms: ${transforms.base_transforms}
+
+  reference:
+    data_object:
+      _target_: torchvision.transforms.v2.Compose
+      transforms: ${transforms.base_transforms}
+
+    reference_object:
+      _target_: torchvision.transforms.v2.Compose
+      transforms: ${transforms.base_transforms}
+
+  val:
+    data_object:
+      _target_: torchvision.transforms.v2.Compose
+      transforms:
+        - _target_: torchvision.transforms.v2.Resize
+          size: ${img_size}
+        - _target_: torchvision.transforms.v2.ToTensor
+        - _target_: torchvision.transforms.v2.Normalize
+          mean: [0.5, 0.5, 0.5]
+          std: [0.5, 0.5, 0.5]
